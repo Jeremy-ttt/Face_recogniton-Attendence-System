@@ -91,7 +91,11 @@ def button_save(id, name):
     count += 1
     _, img = cap.read()
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    cv2.imwrite('./dataset/'+str(id)+'_'+name+'_'+str(count)+'.jpg', gray[max_matrix[1]:max_matrix[1]+max_matrix[3], max_matrix[0]:max_matrix[0]+max_matrix[2]])
+    save_path = './dataset/'+str(id)+'_'+name+'_'+str(count)+'.jpg'
+    src = gray[max_matrix[1]:max_matrix[1]+max_matrix[3], max_matrix[0]:max_matrix[0]+max_matrix[2]]
+    # cv2.imwrite(save_path, gray[max_matrix[1]:max_matrix[1]+max_matrix[3], max_matrix[0]:max_matrix[0]+max_matrix[2]])
+    # 用于解决保存中文路径图片乱码。
+    cv2.imencode('.jpg', src)[1].tofile(save_path)
 
 
 def button_back():
