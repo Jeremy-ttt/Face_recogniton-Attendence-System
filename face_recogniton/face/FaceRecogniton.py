@@ -45,7 +45,8 @@ def face_train():
     face_img_paths = [os.path.join('dataset', img_name) for img_name in os.listdir('dataset')]  # 所有脸的路径的列表
     for face_img in face_img_paths:
         user_id = os.path.split(face_img)[-1].split('_')[0]
-        img = cv2.imread(face_img, cv2.IMREAD_GRAYSCALE)  # 读为灰度图像
+        # img = cv2.imread(face_img, cv2.IMREAD_GRAYSCALE)  # 读为灰度图像
+        img = cv2.imdecode(np.fromfile(face_img, dtype=np.uint8), 0)  # 用于解决不能读取中文路径图片。（灰度）
         img_numpy = np.array(img, 'uint8')  # 'uint8'为numpy一种数据类型，无符号整数（0 to 255）
         faces.append(img_numpy)  # 向训练集里添加新的图片数据
         ids.append(int(user_id))  # 添加新id
