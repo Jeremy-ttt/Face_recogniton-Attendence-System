@@ -1,0 +1,10 @@
+matplotlib==3.4.1
+numpy==1.19.3
+opencv-contrib-python==4.5.1.48
+opencv-python==4.5.1.48
+Pillow==8.2.0
+PyMySQL==1.0.2
+pywin32==300
+pywin32-ctypes==0.2.0
+
+
