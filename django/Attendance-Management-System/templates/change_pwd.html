@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>找回密码</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static '/css/find_pwd.css' %}"/>
+</head>
+<body>
+    <div id="register">
+        <h1>请输入您账户的邮箱</h1>
+        <form action="" method="post">
+            <input type="text" name="new_email" placeholder="邮箱" required />
+            <button class="button" type="submit">发送验证码</button>
+        </form>
+        <form action="" method="post">
+            <p>请输入验证码</p>
+            <input type="text" name="captcha" placeholder="验证码" required />
+            <p>请输入新密码</p>
+            <input type="text" name="new_pwd" placeholder="新密码" required />
+            <button class="button" type="submit">确认</button>
+        </form>
+    </div>
+</body>
+</html>
